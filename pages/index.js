@@ -4,10 +4,11 @@ import Controls from '../components/Controls/Controls';
 import Timer from '../components/Timer/Timer';
 import SettingsButton from '../components/SettingsButton/SettingsButton';
 import Settings from '../components/Settings/Settings';
+import AdBanner from '../components/AdBanner/AdBanner';
 
 export default function Home() {
 	const [visible, setVisible] = useState(false);
-	const [timerMode, setTimerMode] = useState('pomo'); // 'pomo', 'short', 'long'
+	const [timerMode, setTimerMode] = useState('pomo');
 	const [pomoLength, setPomoLength] = useState(25);
 	const [shortLength, setShortLength] = useState(5);
 	const [longLength, setLongLength] = useState(15);
@@ -43,7 +44,16 @@ export default function Home() {
 	};
 
 	const restartTimer = () => {
-		setSecondsLeft(pomoLength * 60);
+		switch (timerMode) {
+			case 'short':
+				setSecondsLeft(shortLength * 60);
+				break;
+			case 'long':
+				setSecondsLeft(longLength * 60);
+				break;
+			default:
+				setSecondsLeft(pomoLength * 60);
+		}
 		setButtonText('pause');
 	};
 
@@ -81,6 +91,8 @@ export default function Home() {
 
 	return (
 		<div className='bg-blue h-[100vh] relative flex flex-col items-center'>
+			<AdBanner customStyle={'absolute left-0 top-20'} />
+			<AdBanner customStyle={'absolute right-0 top-20'} />
 			<Header />
 			<Controls timerMode={timerMode} handleRadioClick={handleRadioClick} />
 			<Timer
