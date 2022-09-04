@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Head from 'next/head';
 import Header from '../components/Header/Header';
 import Controls from '../components/Controls/Controls';
 import Timer from '../components/Timer/Timer';
@@ -91,6 +92,13 @@ export default function Home() {
 
 	return (
 		<div className='bg-blue h-[100vh] relative flex flex-col items-center'>
+			<Head>
+				<title>Best Pomodoro App Online</title>
+				<meta
+					name='description'
+					content='This free pomodoro app provides a simple yet powerful time management tool for students, perfectionists, and procrastinators of all kinds. Fully customizable intervals.'
+				/>
+			</Head>
 			<AdBanner customStyle={'absolute left-0 top-20'} />
 			<AdBanner customStyle={'absolute right-0 top-20'} />
 			<Header />
