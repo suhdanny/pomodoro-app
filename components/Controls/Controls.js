@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import tw from 'tailwind-styled-components';
 
-const Controls = ({ timerMode, setTimerMode }) => {
-	const handleRadioClick = e => {
-		setTimerMode(e.currentTarget.value);
-	};
-
+const Controls = ({ timerMode, handleRadioClick }) => {
 	return (
 		<div className='inline-flex overflow-hidden rounded-2xl bg-darkblue'>
 			<Input
