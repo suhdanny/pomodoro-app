@@ -99,8 +99,6 @@ export default function Home() {
 					content='This free pomodoro app provides a simple yet powerful time management tool for students, perfectionists, and procrastinators of all kinds. Fully customizable intervals.'
 				/>
 			</Head>
-			<AdBanner customStyle={'absolute left-0 top-20'} />
-			<AdBanner customStyle={'absolute right-0 top-20'} />
 			<Header />
 			<Controls timerMode={timerMode} handleRadioClick={handleRadioClick} />
 			<Timer
